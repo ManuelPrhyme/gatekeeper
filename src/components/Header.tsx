@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useWallet } from '@solana/wallet-adapter-react';
-import { BookOpen, PenTool, User, Menu, X } from 'lucide-react';
+import { useWalletModal } from '@solana/wallet-adapter-react-ui';
+import { BookOpen, PenTool, User, Menu, X, Wallet, LogOut } from 'lucide-react';
 import { shortenPubkey } from '@/lib/solana';
 
 const Header: React.FC = () => {
-  const { publicKey } = useWallet();
+  const { publicKey, disconnect } = useWallet();
+  const { setVisible } = useWalletModal();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -57,12 +58,28 @@ const Header: React.FC = () => {
 
           {/* Right Side */}
           <div className="flex items-center gap-3">
-            {publicKey && (
-              <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary text-xs font-mono text-muted-foreground">
-                {shortenPubkey(publicKey.toBase58())}
-              </span>
+            {publicKey ? (
+              <>
+                <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary text-xs font-mono text-muted-foreground">
+                  {shortenPubkey(publicKey.toBase58())}
+                </span>
+                <button
+                  onClick={() => disconnect()}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-destructive/10 text-destructive hover:bg-destructive/20 transition-colors"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Disconnect
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={() => setVisible(true)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                <Wallet className="h-4 w-4" />
+                Connect Wallet
+              </button>
             )}
-            <WalletMultiButton />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="md:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
