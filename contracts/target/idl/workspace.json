@@ -1,0 +1,614 @@
+{
+  "address": "4GSjD1XGSzXDt1qYneSH3mZNm2juye7fKdthwm1AjAem",
+  "metadata": {
+    "name": "workspace",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "check_access",
+      "discriminator": [
+        74,
+        62,
+        42,
+        188,
+        96,
+        229,
+        63,
+        50
+      ],
+      "accounts": [
+        {
+          "name": "reader",
+          "signer": true
+        },
+        {
+          "name": "article",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  114,
+                  116,
+                  105,
+                  99,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "article_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "access_record",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  99,
+                  99,
+                  101,
+                  115,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "article"
+              },
+              {
+                "kind": "account",
+                "path": "reader"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "_article_id",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "initialize_config",
+      "discriminator": [
+        208,
+        127,
+        21,
+        1,
+        194,
+        190,
+        196,
+        70
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "authority"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "fee_bps",
+          "type": "u16"
+        },
+        {
+          "name": "usdc_mint",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "register_article",
+      "discriminator": [
+        65,
+        51,
+        44,
+        71,
+        128,
+        168,
+        231,
+        88
+      ],
+      "accounts": [
+        {
+          "name": "author",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "article",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  114,
+                  116,
+                  105,
+                  99,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "article_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config.authority",
+                "account": "Config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "article_id",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "price_usdc",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "unlock_article",
+      "discriminator": [
+        63,
+        102,
+        212,
+        25,
+        62,
+        115,
+        224,
+        136
+      ],
+      "accounts": [
+        {
+          "name": "reader",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "reader_usdc_ata",
+          "writable": true
+        },
+        {
+          "name": "author_usdc_ata",
+          "writable": true
+        },
+        {
+          "name": "article",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  114,
+                  116,
+                  105,
+                  99,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "article_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "access_record",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  99,
+                  99,
+                  101,
+                  115,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "article"
+              },
+              {
+                "kind": "account",
+                "path": "reader"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config.authority",
+                "account": "Config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "_article_id",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "update_price",
+      "discriminator": [
+        61,
+        34,
+        117,
+        155,
+        75,
+        34,
+        123,
+        208
+      ],
+      "accounts": [
+        {
+          "name": "author",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "article",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  114,
+                  116,
+                  105,
+                  99,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "article_id"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "_article_id",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "new_price_usdc",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "AccessRecord",
+      "discriminator": [
+        224,
+        96,
+        239,
+        97,
+        225,
+        133,
+        153,
+        188
+      ]
+    },
+    {
+      "name": "Article",
+      "discriminator": [
+        190,
+        223,
+        81,
+        111,
+        130,
+        251,
+        187,
+        202
+      ]
+    },
+    {
+      "name": "Config",
+      "discriminator": [
+        155,
+        12,
+        170,
+        224,
+        30,
+        250,
+        204,
+        130
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "MathOverflow",
+      "msg": "Math overflow occurred"
+    },
+    {
+      "code": 6001,
+      "name": "Unauthorized",
+      "msg": "Unauthorized access"
+    },
+    {
+      "code": 6002,
+      "name": "ConfigInactive",
+      "msg": "Config is inactive"
+    },
+    {
+      "code": 6003,
+      "name": "ConfigPaused",
+      "msg": "Config is paused"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidAmount",
+      "msg": "Invalid amount"
+    },
+    {
+      "code": 6005,
+      "name": "ArticleNotInitialized",
+      "msg": "Article not initialized"
+    },
+    {
+      "code": 6006,
+      "name": "AuthorCannotUnlock",
+      "msg": "Author cannot unlock own article"
+    },
+    {
+      "code": 6007,
+      "name": "AlreadyUnlocked",
+      "msg": "Reader has already unlocked this article"
+    },
+    {
+      "code": 6008,
+      "name": "AccessDenied",
+      "msg": "Access denied - article not unlocked"
+    }
+  ],
+  "types": [
+    {
+      "name": "AccessRecord",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "reader",
+            "type": "pubkey"
+          },
+          {
+            "name": "article",
+            "type": "pubkey"
+          },
+          {
+            "name": "unlocked_at",
+            "type": "i64"
+          },
+          {
+            "name": "price_paid",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Article",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "is_initialized",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "author",
+            "type": "pubkey"
+          },
+          {
+            "name": "price_usdc",
+            "type": "u64"
+          },
+          {
+            "name": "article_id",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "unlock_count",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Config",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "is_active",
+            "type": "bool"
+          },
+          {
+            "name": "is_paused",
+            "type": "bool"
+          },
+          {
+            "name": "fee_bps",
+            "type": "u16"
+          },
+          {
+            "name": "usdc_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "version",
+            "type": "u8"
+          },
+          {
+            "name": "total_articles",
+            "type": "u64"
+          },
+          {
+            "name": "total_unlocks",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ]
+}

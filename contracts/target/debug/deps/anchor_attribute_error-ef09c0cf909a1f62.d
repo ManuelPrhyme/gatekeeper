@@ -1,0 +1,5 @@
+C:\Users\manue\Desktop\Dev3Pack\hackathon\GateKeeper\contracts\target\debug\deps\anchor_attribute_error-ef09c0cf909a1f62.d: C:\Users\manue\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anchor-attribute-error-0.31.1\src\lib.rs
+
+C:\Users\manue\Desktop\Dev3Pack\hackathon\GateKeeper\contracts\target\debug\deps\anchor_attribute_error-ef09c0cf909a1f62.dll: C:\Users\manue\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anchor-attribute-error-0.31.1\src\lib.rs
+
+C:\Users\manue\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\anchor-attribute-error-0.31.1\src\lib.rs:

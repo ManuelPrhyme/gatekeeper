@@ -1,0 +1,33 @@
+    Finished `release` profile [optimized] target(s) in 0.82s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s
+     Running unittests src/lib.rs (/69fe5cc3be9241901c1cf401/contracts/target/debug/deps/workspace-51ba4ba41e55366b)
+
+Found a 'test' script in the Anchor.toml. Running it as a test suite!
+
+Running test suite: "/69fe5cc3be9241901c1cf401/contracts/Anchor.toml"
+
+yarn run v1.22.22
+$ /69fe5cc3be9241901c1cf401/contracts/node_modules/.bin/ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'
+bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+
+
+  workspace - Gated Content Platform
+    ✔ 1. Initialize Config (412ms)
+    ✔ 2. Register Article with valid price (404ms)
+    ✔ 3. Register a second article (409ms)
+    ✔ 4. Fail to register article with zero price
+    ✔ 5. Unlock article - reader pays USDC to author (417ms)
+    ✔ 6. Second reader unlocks same article (388ms)
+    ✔ 7. Fail to unlock article twice by same reader
+    ✔ 8. Author cannot unlock own article
+    ✔ 9. Check access - reader has access (345ms)
+    ✔ 10. Author updates article price (432ms)
+    ✔ 11. Non-author cannot update article price
+    ✔ 12. Fail to update price to zero
+    ✔ 13. Verify article data integrity after operations
+    ✔ 14. Verify config totals are correct
+
+
+  14 passing (5s)
+
+Done in 6.63s.

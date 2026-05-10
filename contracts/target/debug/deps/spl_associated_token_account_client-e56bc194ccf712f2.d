@@ -1,0 +1,7 @@
+C:\Users\manue\Desktop\Dev3Pack\hackathon\GateKeeper\contracts\target\debug\deps\spl_associated_token_account_client-e56bc194ccf712f2.d: C:\Users\manue\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\spl-associated-token-account-client-2.0.0\src\lib.rs C:\Users\manue\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\spl-associated-token-account-client-2.0.0\src\address.rs C:\Users\manue\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\spl-associated-token-account-client-2.0.0\src\instruction.rs
+
+C:\Users\manue\Desktop\Dev3Pack\hackathon\GateKeeper\contracts\target\debug\deps\libspl_associated_token_account_client-e56bc194ccf712f2.rmeta: C:\Users\manue\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\spl-associated-token-account-client-2.0.0\src\lib.rs C:\Users\manue\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\spl-associated-token-account-client-2.0.0\src\address.rs C:\Users\manue\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\spl-associated-token-account-client-2.0.0\src\instruction.rs
+
+C:\Users\manue\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\spl-associated-token-account-client-2.0.0\src\lib.rs:
+C:\Users\manue\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\spl-associated-token-account-client-2.0.0\src\address.rs:
+C:\Users\manue\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\spl-associated-token-account-client-2.0.0\src\instruction.rs:
